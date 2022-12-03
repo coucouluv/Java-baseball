@@ -27,7 +27,7 @@ public class GameSystem {
     public boolean result() {
         BallStatus ballStatus = new BallStatus(0,0);
         ballStatus.gameScore(computer.getNumber(), user.getNumber());
-        InputView.resultMessage(ballStatus.getStrike(),ballStatus.getBall());
+        InputView.resultMessage(ballStatus);
         return ballStatus.isAllStrike();
     }
 }
