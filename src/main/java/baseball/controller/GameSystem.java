@@ -14,6 +14,7 @@ public class GameSystem {
         //게임 진행
         play();
         //게임 재시작/종료 여부
+        restartOrQuit();
     }
     public void play() {
         while(true) {
@@ -29,5 +30,11 @@ public class GameSystem {
         ballStatus.gameScore(computer.getNumber(), user.getNumber());
         InputView.resultMessage(ballStatus);
         return ballStatus.isAllStrike();
+    }
+    public void restartOrQuit() {
+        String command = InputView.restartOrQuitMessage();
+        if(command.equals("1")) {
+            play();
+        }
     }
 }
