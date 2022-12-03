@@ -5,6 +5,7 @@ import java.util.List;
 public class BallStatus {
     private int strike;
     private int ball;
+    private boolean isAllStrike;
 
     public BallStatus(int strike, int ball) {
         this.strike = strike;
@@ -19,7 +20,19 @@ public class BallStatus {
                 ball += 1;
             }
         }
+        setIsAllStrike();
     }
+    public void setIsAllStrike() {
+        if(strike == 3)
+            isAllStrike = true;
+        else
+            isAllStrike = false;
+    }
+
+    public boolean isAllStrike() {
+        return isAllStrike;
+    }
+
     public int getStrike() {
         return strike;
     }

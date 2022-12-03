@@ -18,7 +18,7 @@ public class InputView {
     /**
      * 여기서 매개변수 필요
      */
-    public static void resultMessage() {
+    public static void resultMessage(int strike, int ball) {
 
     }
     public static String restartOrQuitMessage() {

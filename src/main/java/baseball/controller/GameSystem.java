@@ -1,5 +1,6 @@
 package baseball.controller;
 
+import baseball.domain.BallStatus;
 import baseball.domain.Computer;
 import baseball.domain.User;
 import baseball.view.InputView;
@@ -15,11 +16,18 @@ public class GameSystem {
         //게임 재시작/종료 여부
     }
     public void play() {
-        computer.createNumber();
-        user.createNumber();
-        result();
+        while(true) {
+            computer.createNumber();
+            user.createNumber();
+            if(result()) {
+                break;
+            }
+        }
     }
-    public void result() {
-
+    public boolean result() {
+        BallStatus ballStatus = new BallStatus(0,0);
+        ballStatus.gameScore(computer.getNumber(), user.getNumber());
+        InputView.resultMessage(ballStatus.getStrike(),ballStatus.getBall());
+        return ballStatus.isAllStrike();
     }
 }
