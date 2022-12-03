@@ -12,15 +12,14 @@ public class GameSystem {
         InputView.startMessage();
         //게임 진행
         play();
-        //컴퓨터 수 세팅
-        //사용자 입력값 입력
-        //게임 결과 판별
         //게임 재시작/종료 여부
     }
     public void play() {
         computer.createNumber();
         user.createNumber();
-        //게임 결과는??
+        result();
+    }
+    public void result() {
 
     }
 }
