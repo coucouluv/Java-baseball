@@ -13,7 +13,6 @@ public class User implements Player{
     @Override
     public void createNumber() {
         String input = InputView.inputMessage();
-        //예외 처리
         number = Arrays.stream(input.split(""))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());

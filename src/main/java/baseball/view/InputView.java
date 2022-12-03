@@ -1,5 +1,6 @@
 package baseball.view;
 
+import baseball.exception.InputValidator;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
@@ -10,6 +11,7 @@ public class InputView {
     public static String inputMessage() {
         System.out.printf("숫자를 입력해주세요 : ");
         String input = Console.readLine();
+        InputValidator.checkBall(input);
         return input;
     }
 
@@ -19,7 +21,7 @@ public class InputView {
     public static void resultMessage() {
 
     }
-    public static String restartOrEndMessage() {
+    public static String restartOrQuitMessage() {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         String input = Console.readLine(); //공백 전까지 입력받음
         return input;
