@@ -11,14 +11,15 @@ public class GameSystem {
     public void run() {
         //게임 시작 문구 출력
         InputView.startMessage();
-        //게임 진행
-        play();
-        //게임 재시작/종료 여부
-        restartOrQuit();
+        do {
+            //게임 진행
+            play();
+            //게임 재시작/종료 여부
+        } while(restartOrQuit());
     }
     public void play() {
+        computer.createNumber();
         while(true) {
-            computer.createNumber();
             user.createNumber();
             if(result()) {
                 break;
@@ -31,10 +32,11 @@ public class GameSystem {
         InputView.resultMessage(ballStatus);
         return ballStatus.isAllStrike();
     }
-    public void restartOrQuit() {
+    public boolean restartOrQuit() {
         String command = InputView.restartOrQuitMessage();
         if(command.equals("1")) {
-            play();
+            return true;
         }
+        return false;
     }
 }
